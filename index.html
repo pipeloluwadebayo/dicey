@@ -30,7 +30,25 @@
       <button class="btn btn--new">🔄 New game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
+      <button class="show-modal">❓ Game Rules</button>
     </main>
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>How to play Dicey</h1>
+      <p>
+        Player 1 starts the game. The first player to have an accumulated score
+        of 30 wins the game. If you role a 'one', you automatically lose your
+        turn and score zero for that round. Click 'hold' to save your current
+        score or add to your previous total.
+      </p>
+      <br />
+      <i
+        >Click anywhere on the screen, the close button or press the Esc key to
+        close this message</i
+      >
+    </div>
+    <div class="overlay hidden"></div>
+
     <script src="script.js"></script>
   </body>
 </html>

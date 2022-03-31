@@ -16,7 +16,7 @@ let scores, playing, activePlayer, currentScore;
 const resetGame = function () {
   scores = [0, 0];
   playing = true;
-  activePlayer = 1;
+  activePlayer = 0;
   currentScore = 0;
   score1.textContent = 0;
   score2.textContent = 0;
@@ -76,3 +76,31 @@ hold.addEventListener('click', function () {
 });
 
 newGame.addEventListener('click', resetGame);
+
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const closeModal = document.querySelector('.close-modal');
+const showModal = document.querySelectorAll('.show-modal');
+
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+const hideModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+for (let i = 0; i < showModal.length; i++) {
+  showModal[i].addEventListener('click', openModal);
+}
+
+closeModal.addEventListener('click', hideModal);
+overlay.addEventListener('click', hideModal);
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+    hideModal();
+  }
+});
